@@ -25,7 +25,6 @@ xapian-core/*:tools.build:cxxflags=!
 xapian-core/*:tools.build:cflags=!
 
 [options]
-openvdb/*:simd=NEON
 embree/*:shared=True
 
 # vim: ft=conf
