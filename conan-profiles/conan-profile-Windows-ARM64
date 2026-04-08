@@ -24,5 +24,6 @@ libiconv/*:tools.build:cflags=!
 
 [options]
 embree/*:shared=True
+xapian-core/*:build=False
 
 # vim: ft=conf
