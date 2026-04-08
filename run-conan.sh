@@ -170,6 +170,7 @@ conan create $WORKSPACE \
   --version=$LUXDEPS_VERSION \
   --remote=mycenter \
   --remote=mylocal \
+  --remote=conancenter \
   --build=missing
 echo "::endgroup::"
 
