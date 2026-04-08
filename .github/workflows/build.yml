@@ -163,6 +163,14 @@ jobs:
         with:
           arch: ${{ runner.arch == 'ARM64' && 'arm64' || 'x64' }}
 
+      - name: Install MSYS2 (Windows ARM64)
+        if: runner.os == 'Windows' && runner.arch == 'ARM64'
+        uses: msys2/setup-msys2@v2
+        with:
+          msystem: CLANGARM64
+          install: gcc clang make
+          update: true
+
       - name: Configure git for long paths (Windows)
         shell: bash
         if: runner.os == 'Windows'

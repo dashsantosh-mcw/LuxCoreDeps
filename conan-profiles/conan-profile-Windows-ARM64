@@ -3,20 +3,21 @@ include(conan-profile-common)
 [settings]
 os=Windows
 arch=armv8
-compiler=msvc
-compiler.version=194
-compiler.cppstd={{ os.getenv("CXX_VERSION") }}
+compiler=clang
+compiler.version=18
+compiler.libcxx=libc++
 compiler.runtime=dynamic
+compiler.runtime_version=v143
+compiler.cppstd={{ os.getenv("CXX_VERSION") }}
 doxygen/*:compiler.cppstd=17
 xapian-core/*:compiler.cppstd=14
 
 [conf]
-tools.build:cxxflags=["/openmp", "/MP", "/DEBUG:NONE", "/O2", "/arch:NEON"]
-tools.build:cflags=["/openmp", "/MP", "/DEBUG:NONE", "/O2", "/arch:NEON"]
+tools.build:cxxflags=["-fopenmp", "-O2", "-march=armv8-a+simd"]
+tools.build:cflags=["-fopenmp", "-O2", "-march=armv8-a+simd"]
 embree/*:tools.cmake.cmaketoolchain:user_toolchain+={{os.getenv("LUX_PROFILE_DIR", profile_dir)}}/windows-vars-ARM64.cmake
-embree/*:tools.build:cxxflags=["/DEBUG:NONE", "/O2" ]
-embree/*:tools.build:cflags=["/DEBUG:NONE", "/O2" ]
-openimageio/*:tools.build:cxxflags+=["/utf-8" ]
+embree/*:tools.build:cxxflags=["-O2" ]
+embree/*:tools.build:cflags=["-O2" ]
 
 # Following deps are to be compiled with msys2/gcc: MSVC flags will not do
 libiconv/*:tools.build:cxxflags=!
