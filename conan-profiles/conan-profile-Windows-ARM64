@@ -23,6 +23,7 @@ libiconv/*:tools.build:cflags=!
 
 [options]
 embree/*:shared=True
+onetbb/*:tbbproxy=False
 xapian-core/*:build=False
 
 # vim: ft=conf
