@@ -12,8 +12,8 @@ xapian-core/*:compiler.cppstd=14
 strawberryperl/*:arch=x86_64
 
 [conf]
-tools.build:cxxflags=["/openmp", "/MP", "/DEBUG:NONE", "/O2", "/arch:NEON"]
-tools.build:cflags=["/openmp", "/MP", "/DEBUG:NONE", "/O2", "/arch:NEON"]
+tools.build:cxxflags=["/openmp", "/MP", "/DEBUG:NONE", "/O2"]
+tools.build:cflags=["/openmp", "/MP", "/DEBUG:NONE", "/O2"]
 embree/*:tools.cmake.cmaketoolchain:user_toolchain+={{os.getenv("LUX_PROFILE_DIR", profile_dir)}}/windows-vars-ARM64.cmake
 embree/*:tools.build:cxxflags=["/DEBUG:NONE", "/O2" ]
 embree/*:tools.build:cflags=["/DEBUG:NONE", "/O2" ]
@@ -21,8 +21,6 @@ embree/*:tools.build:cflags=["/DEBUG:NONE", "/O2" ]
 # Following deps are to be compiled with msys2/gcc: MSVC flags will not do
 libiconv/*:tools.build:cxxflags=!
 libiconv/*:tools.build:cflags=!
-xapian-core/*:tools.build:cxxflags=!
-xapian-core/*:tools.build:cflags=!
 
 [options]
 embree/*:shared=True
