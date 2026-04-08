@@ -9,6 +9,7 @@ compiler.cppstd={{ os.getenv("CXX_VERSION") }}
 compiler.runtime=dynamic
 doxygen/*:compiler.cppstd=17
 xapian-core/*:compiler.cppstd=14
+strawberryperl/*:arch=x86_64
 
 [conf]
 tools.build:cxxflags=["/openmp", "/MP", "/DEBUG:NONE", "/O2", "/arch:NEON"]

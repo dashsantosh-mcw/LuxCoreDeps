@@ -377,7 +377,7 @@ jobs:
             fi
 
             pipx ensurepath --force
-            pipx install --quiet --upgrade --upgrade conan
+            pipx install --quiet --upgrade conan
 
             # Clean cache and load archive
             $CONAN remove -c "*" > /dev/null
