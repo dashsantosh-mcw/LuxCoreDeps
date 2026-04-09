@@ -93,7 +93,11 @@ echo "::endgroup::"
 # 2.5 Build local packages
 echo "::group::CIBW_BEFORE_BUILD: Build local packages"
 cd $WORKSPACE/conan-local-recipes/recipes/embree/all
+echo "Current directory: $(pwd)"
+echo "Checking for prebuilt/lib/embree4.lib"
+ls -la prebuilt/lib/
 if [ -f "prebuilt/lib/embree4.lib" ]; then
+  echo "File found, creating package"
   conan create . --profile:all=$WORKSPACE/conan-profiles/$CONAN_PROFILE --version=4.4.0
 else
   echo "::warning::Prebuilt Embree not found, skipping local package creation"
